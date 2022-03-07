@@ -1,36 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import Customer from './Com/Customer';
 
-function App() {
-  return (
-  
-    <div className="App">
- 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a className='gray-background'   href="https://reactjs.org"   rel="noopener noreferrer"
-          target="_blank">
-          test
-        </a>
-          <a className='gray-background'   href="https://reactjs.org"   rel="noopener noreferrer"
-          target="_blank">
-      test21
-      </a>
-      </header>
-    
+const Cus = [{
+  'id': 1,
+  'test1': 'https://placeimg.com/64/64/1',
+  'test2': 'test2'
+
+},
+{
+  'id': 2,
+  'test1': 'https://placeimg.com/64/64/1',
+  'test2': 'test22'
+}
+]
+
+class App extends Component {
+
+  render() {
+    return (
+    <div>
+      {
+        Cus.map(c => {
+          return (
+            <Customer
+              key={c.id}
+              id={c.id}              
+              test1={c.test1}
+              test2={c.test2}
+            />
+          );
+        })
+      }
     </div>
-  );
+    )
+  }
 }
 
 export default App;
+
